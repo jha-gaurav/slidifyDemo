@@ -1,0 +1,63 @@
+---
+title       : Slidyfy Project DDP02
+subtitle    : HTML5 Slides from R Markdown
+author      : Gaurav Jha
+job         : 
+framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
+highlighter : highlight.js  # {highlight.js, prettify, highlight}
+hitheme     : tomorrow      # 
+widgets     : []            # {mathjax, quiz, bootstrap}
+mode        : selfcontained # {standalone, draft}
+knit        : slidify::knit2slides
+github:
+        user: jha-gaurav
+        repo: Developing-Data-Products
+---
+
+## Introduction
+
+This presentation is created as a part of Week4 project for 'Building Data Products' course under Data Science Specialization from Johns Hopkins University.
+
+This presentation is created using slidify.
+
+```{r, echo=FALSE, message=FALSE}
+require(ggplot2)
+require(datasets)
+require(webshot)
+```
+
+## Getting the Data
+
+I will use the "Titanic" dataset available in the {datasets} package in R. This dataset contains details of passengers who survived the sinking of Titanic, along with other properties like their class, age category and gender. The frequency term indicates the total number of survivors in that category.
+
+```{r}
+data("Titanic")
+df_titan <- as.data.frame(Titanic)
+```
+
+---
+## Survivors vs Class
+
+```{r,echo=FALSE, warning=FALSE, message=FALSE}
+g <- ggplot(df_titan, aes(x = Class, y = Freq / 10, col = Survived))
+g <- g + geom_boxplot() + ylim(0, 20)
+g
+```
+
+---
+## Survivors vs Age
+
+```{r,echo=FALSE, warning=FALSE, message=FALSE}
+g <- ggplot(df_titan, aes(x = Age, y = Freq / 10, col = Survived))
+g <- g + geom_boxplot() + ylim(0, 20)
+g
+```
+
+---
+## Survivors vs Sex
+
+```{r,echo=FALSE, warning=FALSE, message=FALSE}
+g <- ggplot(df_titan, aes(x = Sex, y = Freq / 10, col = Survived))
+g <- g + geom_boxplot() + ylim(0, 20)
+g
+```
