@@ -20,17 +20,14 @@ This presentation is created as a part of Week4 project for 'Building Data Produ
 
 This presentation is created using slidify.
 
-```{r, echo=FALSE, message=FALSE}
-require(ggplot2)
-require(datasets)
-require(webshot)
-```
+
 
 ## Getting the Data
 
 I will use the "Titanic" dataset available in the {datasets} package in R. This dataset contains details of passengers who survived the sinking of Titanic, along with other properties like their class, age category and gender. The frequency term indicates the total number of survivors in that category.
 
-```{r}
+
+```r
 data("Titanic")
 df_titan <- as.data.frame(Titanic)
 ```
@@ -38,23 +35,32 @@ df_titan <- as.data.frame(Titanic)
 ---
 ## Survivors vs Class
 
-```{r, warning=FALSE, message=FALSE}
+
+```r
 g <- ggplot(df_titan, aes(x = Class, y = Freq / 10, col = Survived))
 g + geom_boxplot() + ylim(0, 20)
 ```
 
+![plot of chunk unnamed-chunk-3](figure/unnamed-chunk-3-1.png)
+
 ---
 ## Survivors vs Age
 
-```{r, warning=FALSE, message=FALSE}
+
+```r
 g <- ggplot(df_titan, aes(x = Age, y = Freq / 10, col = Survived))
 g + geom_boxplot() + ylim(0, 20)
 ```
 
+![plot of chunk unnamed-chunk-4](figure/unnamed-chunk-4-1.png)
+
 ---
 ## Survivors vs Sex
 
-```{r, warning=FALSE, message=FALSE}
+
+```r
 g <- ggplot(df_titan, aes(x = Sex, y = Freq / 10, col = Survived))
 g + geom_boxplot() + ylim(0, 20)
 ```
+
+![plot of chunk unnamed-chunk-5](figure/unnamed-chunk-5-1.png)
